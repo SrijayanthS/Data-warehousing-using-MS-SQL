@@ -1,0 +1,389 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer localhost FINALEXAMBUSA532SrijayanthSaseendran",
+        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Initial Catalog=FINALEXAMBUSA532SrijayanthSaseendran;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "srijayanth1995@gmail.com",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EnglishMonthName",
+            "dataType": "string",
+            "sourceColumn": "EnglishMonthName",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semester",
+            "dataType": "int64",
+            "sourceColumn": "Semester",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IsHoliday",
+            "dataType": "string",
+            "sourceColumn": "IsHoliday",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimDate",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimDate].* FROM [dbo].[DimDate] ",
+              "dataSource": "SqlServer localhost FINALEXAMBUSA532SrijayanthSaseendran"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1",
+            "levels": [
+              {
+                "name": "CalendarYear",
+                "ordinal": 1,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "Semester",
+                "ordinal": 0,
+                "column": "Semester"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimDate].* FROM [dbo].[DimDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimStudent",
+        "columns": [
+          {
+            "name": "StudentKey",
+            "dataType": "int64",
+            "sourceColumn": "StudentKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "StudentID",
+            "dataType": "int64",
+            "sourceColumn": "StudentID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "StudentFullName",
+            "dataType": "string",
+            "sourceColumn": "StudentFullName",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "StudentFullAddress",
+            "dataType": "string",
+            "sourceColumn": "StudentFullAddress",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "StudentMajor",
+            "dataType": "string",
+            "sourceColumn": "StudentMajor",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CurrentValue",
+            "dataType": "string",
+            "sourceColumn": "CurrentValue",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimStudent",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimStudent].* FROM [dbo].[DimStudent] ",
+              "dataSource": "SqlServer localhost FINALEXAMBUSA532SrijayanthSaseendran"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimStudent].* FROM [dbo].[DimStudent] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimStudent"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimSubject",
+        "columns": [
+          {
+            "name": "SubjectKey",
+            "dataType": "int64",
+            "sourceColumn": "SubjectKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SubjectID",
+            "dataType": "int64",
+            "sourceColumn": "SubjectID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SubjectName",
+            "dataType": "string",
+            "sourceColumn": "SubjectName",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "SubjectDescription",
+            "dataType": "string",
+            "sourceColumn": "SubjectDescription",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CurrentValue",
+            "dataType": "string",
+            "sourceColumn": "CurrentValue",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimSubject",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DimSubject].* FROM [dbo].[DimSubject] ",
+              "dataSource": "SqlServer localhost FINALEXAMBUSA532SrijayanthSaseendran"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimSubject].* FROM [dbo].[DimSubject] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimSubject"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "FactLessStudent",
+        "columns": [
+          {
+            "name": "StudentKey",
+            "dataType": "int64",
+            "sourceColumn": "StudentKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SubjectKey",
+            "dataType": "int64",
+            "sourceColumn": "SubjectKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ClassID",
+            "dataType": "int64",
+            "sourceColumn": "ClassID",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactLessStudent",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[FactLessStudent].* FROM [dbo].[FactLessStudent] ",
+              "dataSource": "SqlServer localhost FINALEXAMBUSA532SrijayanthSaseendran"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FactLessStudent].* FROM [dbo].[FactLessStudent] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactLessStudent"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PeriodicSnapShotFactSemester",
+        "columns": [
+          {
+            "name": "SemesterKey",
+            "dataType": "int64",
+            "sourceColumn": "SemesterKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SubjectKey",
+            "dataType": "int64",
+            "sourceColumn": "SubjectKey",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SemesterGPA by Grade range",
+            "dataType": "double",
+            "sourceColumn": "SemesterGPA by Grade range",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "SemesterAverageGPA",
+            "dataType": "double",
+            "sourceColumn": "SemesterAverageGPA",
+            "sourceProviderType": "Double"
+          },
+          {
+            "name": "SemesterTotalCredits",
+            "dataType": "double",
+            "sourceColumn": "SemesterTotalCredits",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "SemesterTotalClassHours",
+            "dataType": "int64",
+            "sourceColumn": "SemesterTotalClassHours",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "SemesterPerformance",
+            "dataType": "string",
+            "sourceColumn": "SemesterPerformance",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PeriodicSnapShotFactSemester",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[PeriodicSnapShotFactSemester].* FROM [dbo].[PeriodicSnapShotFactSemester] ",
+              "dataSource": "SqlServer localhost FINALEXAMBUSA532SrijayanthSaseendran"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Measure 1",
+            "expression": "AVERAGE(PeriodicSnapShotFactSemester[SemesterAverageGPA])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[PeriodicSnapShotFactSemester].* FROM [dbo].[PeriodicSnapShotFactSemester] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PeriodicSnapShotFactSemester"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "62c04f09-75c0-4c19-bf9c-87e31397b78a",
+        "fromTable": "FactLessStudent",
+        "fromColumn": "StudentKey",
+        "toTable": "DimStudent",
+        "toColumn": "StudentKey"
+      },
+      {
+        "name": "1d2c2137-eb90-48c3-bd84-a888a8e7fbcc",
+        "fromTable": "FactLessStudent",
+        "fromColumn": "SubjectKey",
+        "toTable": "DimSubject",
+        "toColumn": "SubjectKey"
+      },
+      {
+        "name": "f1d65a8e-1f5b-427e-8544-b82b96f36b7b",
+        "fromTable": "PeriodicSnapShotFactSemester",
+        "fromColumn": "SubjectKey",
+        "toTable": "DimSubject",
+        "toColumn": "SubjectKey"
+      }
+    ],
+    "roles": [
+      {
+        "name": "University Analyst",
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "DimStudent",
+            "filterExpression": "DimStudent[StudentMajor]=\"Accounting\""
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
